@@ -99,7 +99,7 @@ const BasicLayout: React.FC = () => {
 						<NoAuthPage />
 					)}
 				</Content>
-				<Footer style={{ textAlign: "center" }}>react template admin ©2023 Created by Jade</Footer>
+				<Footer style={{ textAlign: "center" }}>ice-cli-react</Footer>
 			</Layout>
 		</Layout>
 	);

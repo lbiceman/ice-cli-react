@@ -3,7 +3,7 @@ import ErrorPage from "@components/ErrorPage";
 import LoginPage from "../layout/components/Login";
 import App, { authLoader } from "../App";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { DashboardOutlined, EditOutlined, TableOutlined, BarsOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, EditOutlined, TableOutlined, BarsOutlined, UserOutlined } from "@ant-design/icons";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const FormPage = lazy(() => import("../pages/FormPage"));
@@ -23,8 +23,8 @@ const routes = [
 				children: [
 					{
 						index: true,
-						title: "Index",
-						icon: <DashboardOutlined />,
+						title: "首页",
+						icon: <HomeOutlined />,
 						element: <Dashboard />
 					},
 					{

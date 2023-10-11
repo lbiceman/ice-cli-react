@@ -59,10 +59,10 @@
 
 ```shell
 # 克隆项目
-git clone https://github.com/panyushan-jade/react-template-admin.git
+git clone https://github.com/panyushan-jade/ice-cli-react.git
 
 # 进入项目目录
-cd react-template-admin
+cd ice-cli-react
 
 # 安装依赖
 pnpm install(推荐使用pnpm)
