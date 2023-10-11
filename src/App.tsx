@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import Class from './components/Class'
 import './app.less'
 
@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <h2 onClick={showComponent}>展示</h2>
+      {show}
       <Class />
     </>
   )
