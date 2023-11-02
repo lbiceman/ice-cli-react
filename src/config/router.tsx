@@ -3,7 +3,7 @@ import ErrorPage from "@components/ErrorPage";
 import LoginPage from "../layout/components/Login";
 import App, { authLoader } from "../App";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { HomeOutlined, EditOutlined, TableOutlined, BarsOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, EditOutlined, TableOutlined, BarsOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const FormPage = lazy(() => import("../pages/FormPage"));
@@ -11,6 +11,8 @@ const TablePage = lazy(() => import("../pages/TablePage"));
 const AccountCenter = lazy(() => import("../pages/AccountPage/AccountCenter"));
 const AccountSettings = lazy(() => import("../pages/AccountPage/AccountSettings"));
 const DetailPage = lazy(() => import("../pages/DetailPage"));
+const SysUser = lazy(() => import("../pages/SysPage/user/index"));
+const SysMenu = lazy(() => import("../pages/SysPage/menu/index"));
 
 const routes = [
 	{
@@ -59,6 +61,23 @@ const routes = [
 								path: "/account/settings",
 								title: "个人设置",
 								element: <AccountSettings />
+							}
+						]
+					},
+					{
+						path: "sys",
+						title: "系统管理",
+						icon: <SettingOutlined />,
+						children: [
+							{
+								path: "/sys/user",
+								title: "用户管理",
+								element: <SysUser />
+							},
+							{
+								path: "/sys/menu",
+								title: "菜单管理",
+								element: <SysMenu />
 							}
 						]
 					},
