@@ -13,7 +13,7 @@ type RouteType = NonIndexRouteObject & {
 	icon: React.ReactElement;
 };
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const BasicLayout: React.FC = () => {
 	const [collapsed, setCollapsed] = useState(false);
@@ -88,7 +88,7 @@ const BasicLayout: React.FC = () => {
 					style={{
 						padding: 16,
 						overflow: "auto",
-						height: `calc(100vh - 128px)`
+						height: `calc(100vh - 64px)`
 					}}
 				>
 					{isAdmin ? (
@@ -99,7 +99,6 @@ const BasicLayout: React.FC = () => {
 						<NoAuthPage />
 					)}
 				</Content>
-				<Footer style={{ textAlign: "center" }}>ice-cli-react</Footer>
 			</Layout>
 		</Layout>
 	);
