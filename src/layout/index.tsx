@@ -65,11 +65,17 @@ const BasicLayout: React.FC = () => {
 			>
 				<div
 					style={{
+						display: "flex",
+						alignItems: "center",
+						color: "#fff",
+						justifyContent: "center",
+						wordBreak: "break-all",
 						height: 32,
-						margin: 16,
-						background: "rgba(255, 255, 255, 0.2)"
+						margin: 16
 					}}
-				/>
+				>
+					ICE-CLI-REACT
+				</div>
 				<Menu
 					theme="dark"
 					defaultSelectedKeys={[pathname]}
