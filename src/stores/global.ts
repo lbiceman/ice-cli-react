@@ -1,3 +1,4 @@
+// 状态管理，类似于vuex
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 

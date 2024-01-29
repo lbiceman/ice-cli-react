@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import ErrorPage from "@components/ErrorPage";
+import ErrorPage from "@/components/ErrorPage";
 import LoginPage from "../layout/components/Login";
 import App, { authLoader } from "../App";
 import { createBrowserRouter, Navigate } from "react-router-dom";
@@ -18,6 +18,8 @@ const routes = [
 	{
 		path: "/",
 		element: <App />,
+		// loader函数，在渲染之前向路由元素提供数据，可以用于判断权限
+		// { params } 参数
 		loader: authLoader,
 		children: [
 			{
@@ -95,6 +97,8 @@ const routes = [
 	}
 ];
 
+// 导出菜单json，供项目使用
 export { routes };
 
+// 创建路由   用于管理历史堆栈
 export default createBrowserRouter(routes);

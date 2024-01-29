@@ -3,9 +3,9 @@ import { Outlet, useLoaderData, useNavigate, NonIndexRouteObject, useLocation, N
 import { MenuProps } from "antd";
 import { Layout, Menu, theme, Spin } from "antd";
 import HeaderComp from "./components/Header";
-import { useLoginStore } from "@stores/index";
+import { useLoginStore } from "@/stores/index";
 import { routes } from "../config/router";
-import NoAuthPage from "@components/NoAuthPage";
+import NoAuthPage from "@/components/NoAuthPage";
 import "antd/dist/reset.css";
 
 type RouteType = NonIndexRouteObject & {

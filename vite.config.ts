@@ -2,17 +2,21 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 export default defineConfig({
-  server: {
-    port: 1024,
-  },
-  resolve: {
-    alias: {
-      "@pages": resolve(__dirname, "src", "pages"),
-      "@components": resolve(__dirname, "src", "components"),
-      "@stores": resolve(__dirname, "src", "stores"),
-      "@services": resolve(__dirname, "src", "services"),
-      "@utils": resolve(__dirname, "src", "utils"),
-    },
-  },
-  plugins: [react()],
+	server: {
+		port: 1024
+	},
+	resolve: {
+		alias: {
+			"@": resolve(__dirname, "src")
+		}
+	},
+	css: {
+		// 预处理器配置项
+		preprocessorOptions: {
+			less: {
+				javascriptEnabled: true
+			}
+		}
+	},
+	plugins: [react()]
 });

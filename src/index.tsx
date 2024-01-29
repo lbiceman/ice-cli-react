@@ -4,8 +4,8 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./config/router";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+// 创建根节点
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
+// 渲染到dom
 root.render(<RouterProvider router={router} />);

@@ -3,7 +3,7 @@ import { LockOutlined, MobileOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { LoginFormPage, ProFormCaptcha, ProFormCheckbox, ProFormText } from "@ant-design/pro-components";
 import { Divider, message, Tabs } from "antd";
-import { useLoginStore } from "@stores/index";
+import { useLoginStore } from "@/stores/index";
 
 type LoginType = "phone" | "account";
 
