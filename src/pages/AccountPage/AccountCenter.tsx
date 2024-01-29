@@ -14,7 +14,7 @@ const AccountCenter: React.FC = () => {
 				<Col>
 					<Typography.Title level={3}>ice-cli-react</Typography.Title>
 				</Col>
-				<Col>海纳百川，有容乃大</Col>
+				<Col>一切能使用JS解决的，最终都将使用JS解决</Col>
 			</Row>
 		</ProCard>
 	);
