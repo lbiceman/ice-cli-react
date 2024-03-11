@@ -4,19 +4,7 @@ import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
 import type { ActionType, ProColumns } from "@ant-design/pro-components";
 import { ProTable, TableDropdown } from "@ant-design/pro-components";
 import { Button, Dropdown, Space, Tag } from "antd";
-import { getTable } from "@/services/table";
-
-export const waitTimePromise = async (time: number = 100) => {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve(true);
-		}, time);
-	});
-};
-
-export const waitTime = async (time: number = 100) => {
-	await waitTimePromise(time);
-};
+// import { getTable } from "@/services/table";
 
 type GithubIssueItem = {
 	id: string;
@@ -84,7 +72,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 		search: false,
 		render: (_, record) => (
 			<Space>
-				{record.labels.map(({ name, color }) => (
+				{record?.labels?.map(({ name, color }) => (
 					<Tag color={color} key={name}>
 						{name}
 					</Tag>
@@ -122,7 +110,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 			<a
 				key="editable"
 				onClick={() => {
-					action?.startEditable?.(record.id);
+					action?.startEditable?.(record?.id);
 				}}
 			>
 				编辑
@@ -148,15 +136,10 @@ const TablePage: React.FC = () => {
 			actionRef={actionRef}
 			cardBordered
 			request={async () => {
-				await waitTime(500);
-				const res = await getTable();
+				const res: any = await new Promise(resolve => resolve({ data: [{ id: 123 }], code: 200 }));
 				return {
 					data: res.data,
-					// success 请返回 true，
-					// 不然 table 会停止解析数据，即使有数据
 					success: res.code === 200
-					// 不传会使用 data 的长度，如果是分页一定要传
-					// total: number,
 				};
 			}}
 			editable={{
