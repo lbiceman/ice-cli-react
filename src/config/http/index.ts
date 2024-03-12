@@ -47,6 +47,7 @@ export const initAxios = () => {
 
 		if (userInfo?.isLogin) {
 			headers["token"] = userInfo.token || "";
+			headers["Authorization"] = userInfo.token || "";
 		}
 		// 如果请求地址是http开头，和axios保持一致
 		if (url && url.startsWith("http")) return config;
@@ -54,7 +55,7 @@ export const initAxios = () => {
 		// 如果当前环境不是prod，则认为是本地开发环境，使用本地代理进行接口请求
 		if (isProd && currModule) config.baseURL = currModule.targetUrl || config.baseURL;
 		else if (currModule) config.url = `/${currModule.proxyUrl}${url}`;
-
+		console.log(config);
 		return config;
 	});
 

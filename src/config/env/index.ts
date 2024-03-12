@@ -27,7 +27,7 @@ export const envList: EnvConfig[] = [
 		modules: {
 			common: {
 				proxyUrl: "dev-common",
-				targetUrl: "https://dev.dev.com"
+				targetUrl: "http://bgscm-server.dev.hdzk.cloud:28088"
 			},
 			login: {
 				proxyUrl: "dev-login",

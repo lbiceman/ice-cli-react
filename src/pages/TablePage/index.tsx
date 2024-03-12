@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
 import type { ActionType, ProColumns } from "@ant-design/pro-components";
 import { ProTable, TableDropdown } from "@ant-design/pro-components";
 import { Button, Dropdown, Space, Tag } from "antd";
+import { useAxios } from "@/services";
 // import { getTable } from "@/services/table";
 
 type GithubIssueItem = {
@@ -18,6 +19,17 @@ type GithubIssueItem = {
 	created_at: string;
 	updated_at: string;
 };
+
+const { run: getListRun, data: getListData } = useAxios({
+	method: "POST",
+	url: "/v1/api/procurementPlan/page",
+	data: {
+		current: 1,
+		size: 100,
+		isAll: true,
+		companyCode: 105
+	}
+});
 
 const columns: ProColumns<GithubIssueItem>[] = [
 	{
@@ -128,8 +140,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
 	}
 ];
 
+getListRun();
+
 const TablePage: React.FC = () => {
 	const actionRef = useRef<ActionType>();
+	useEffect(() => {
+		console.log(getListData);
+	}, []);
 	return (
 		<ProTable<GithubIssueItem>
 			columns={columns}
