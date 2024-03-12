@@ -33,7 +33,7 @@ const Login = () => {
 				backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
 				onFinish={onFinish as any}
 				title="ice-cli-react"
-				subTitle="一个轻量级react后台管理系统"
+				subTitle="react后台管理"
 				actions={
 					<div
 						style={{

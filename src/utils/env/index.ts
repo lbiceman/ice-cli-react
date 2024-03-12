@@ -1,4 +1,4 @@
-const currEnv = import.meta.env.APP_ENV;
+const currEnv = (import.meta as any).env.MODE;
 
 export const isProd = currEnv == "production";
 export const isTest = currEnv == "test";

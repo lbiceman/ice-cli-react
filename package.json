@@ -3,8 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
+		"dev": "vite --mode development",
+		"build:dev": "vite build --mode development",
+		"build:test": "vite build --mode production",
+		"build:prod": "vite build --mode production",
 		"preview": "vite preview --port 8080",
 		"prepare": "husky install"
 	},
