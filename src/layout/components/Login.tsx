@@ -3,7 +3,7 @@ import { LockOutlined, MobileOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { LoginFormPage, ProFormCaptcha, ProFormCheckbox, ProFormText } from "@ant-design/pro-components";
 import { Divider, message, Tabs } from "antd";
-import { useLoginStore } from "@/stores/index";
+import { useUserStore } from "@/stores/index";
 
 type LoginType = "phone" | "account";
 
@@ -13,12 +13,12 @@ function delay(ms: number) {
 
 const Login = () => {
 	const [loginType, setLoginType] = useState<LoginType>("account");
-	const { setUserInfo } = useLoginStore();
+	const { setUser } = useUserStore();
 	const navigate = useNavigate();
 	const onFinish = (values: any) => {
 		return delay(1000).then(() => {
 			message.success("登录成功🎉🎉🎉");
-			setUserInfo(values);
+			setUser(values);
 			navigate("/", { replace: true });
 		});
 	};

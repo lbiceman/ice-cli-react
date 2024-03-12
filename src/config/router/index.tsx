@@ -1,18 +1,18 @@
 import React, { lazy } from "react";
-import ErrorPage from "@/components/ErrorPage";
-import LoginPage from "../layout/components/Login";
-import App, { authLoader } from "../App";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { HomeOutlined, EditOutlined, TableOutlined, BarsOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
+import ErrorPage from "@/components/ErrorPage";
+import LoginPage from "../../layout/components/Login";
+import App, { authLoader } from "../../App";
 
-const Dashboard = lazy(() => import("../pages/Dashboard"));
-const FormPage = lazy(() => import("../pages/FormPage"));
-const TablePage = lazy(() => import("../pages/TablePage"));
-const AccountCenter = lazy(() => import("../pages/AccountPage/AccountCenter"));
-const AccountSettings = lazy(() => import("../pages/AccountPage/AccountSettings"));
-const DetailPage = lazy(() => import("../pages/DetailPage"));
-const SysUser = lazy(() => import("../pages/SysPage/user/index"));
-const SysMenu = lazy(() => import("../pages/SysPage/menu/index"));
+const Dashboard = lazy(() => import("../../pages/Dashboard"));
+const FormPage = lazy(() => import("../../pages/FormPage"));
+const TablePage = lazy(() => import("../../pages/TablePage"));
+const AccountCenter = lazy(() => import("../../pages/AccountPage/AccountCenter"));
+const AccountSettings = lazy(() => import("../../pages/AccountPage/AccountSettings"));
+const DetailPage = lazy(() => import("../../pages/DetailPage"));
+const SysUser = lazy(() => import("../../pages/SysPage/user/index"));
+const SysMenu = lazy(() => import("../../pages/SysPage/menu/index"));
 
 const routes = [
 	{

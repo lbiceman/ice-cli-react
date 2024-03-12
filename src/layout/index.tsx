@@ -3,7 +3,7 @@ import { Outlet, useLoaderData, useNavigate, NonIndexRouteObject, useLocation, N
 import { MenuProps } from "antd";
 import { Layout, Menu, theme, Spin } from "antd";
 import HeaderComp from "./components/Header";
-import { useLoginStore } from "@/stores/index";
+import { useUserStore } from "@/stores/index";
 import { routes } from "../config/router";
 import NoAuthPage from "@/components/NoAuthPage";
 import "antd/dist/reset.css";
@@ -19,7 +19,7 @@ const BasicLayout: React.FC = () => {
 	const [collapsed, setCollapsed] = useState(false);
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
-	const { userInfo } = useLoginStore();
+	const { userInfo } = useUserStore();
 	const {
 		token: { colorBgContainer }
 	} = theme.useToken();
@@ -68,13 +68,15 @@ const BasicLayout: React.FC = () => {
 						display: "flex",
 						alignItems: "center",
 						color: "#fff",
+						fontWeight: "bold",
+						fontSize: "16px",
+						whiteSpace: "nowrap",
 						justifyContent: "center",
-						wordBreak: "break-all",
 						height: 32,
-						margin: 16
+						margin: "16px 6px"
 					}}
 				>
-					ICE-CLI-REACT
+					{collapsed ? "ice-cli" : "ice-cli-react"}
 				</div>
 				<Menu
 					theme="dark"

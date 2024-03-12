@@ -1,15 +1,15 @@
 import React, { ChangeEvent } from "react";
 import { Avatar, Dropdown, MenuProps, Button, Input, Badge, Space } from "antd";
 import { SkinOutlined, BellOutlined } from "@ant-design/icons";
-import { useLoginStore, useGlobalStore } from "@/stores/index";
-import { debounce } from "@/utils/func";
+import { useUserStore, useGlobalStore } from "@/stores/index";
+import { debounce } from "@/utils/index";
 import styles from "../index.module.less";
 
 const RightContent: React.FC = () => {
-	const { setUserInfo } = useLoginStore();
+	const { setUser } = useUserStore();
 	const { setColor, primaryColor } = useGlobalStore();
 	const logoutHandle = () => {
-		setUserInfo(null);
+		setUser(null);
 	};
 	const items: MenuProps["items"] = [
 		{
