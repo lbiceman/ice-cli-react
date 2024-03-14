@@ -38,7 +38,7 @@ export const initAxios = () => {
 	const router = useNavigate();
 
 	// 请求拦截
-	axios.interceptors.request.use((config: AxiosConfig | any) => {
+	axios.interceptors.request.use((config: AxiosConfig) => {
 		let { headers, module: requestModule, url } = config || {};
 		headers = headers || {};
 		requestModule = requestModule || "common";
