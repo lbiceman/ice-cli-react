@@ -4,6 +4,7 @@
  * email: lbiceman@126.com
  */
 
+import { useState } from "react";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { isFun, isStr, isObj } from "@/utils/index";
 
@@ -60,13 +61,17 @@ function fmtParams(query?: (() => any) | any): any {
 export function useAxios<R = any, E = any>(url: string | AxiosConfig, config?: AxiosConfig): AxiosResponse<R, E> {
 	let ctrl: AbortController | undefined;
 	const cancel = () => ctrl?.abort();
-	const state: AxiosOptionApiResult<R, E> = {
+	const [state, setState] = useState<AxiosOptionApiResult<R, E>>({
 		loading: false,
 		data: null,
 		error: null
-	};
+	});
 	const instance = getAxiosInstance();
 	const run = (runConfig?: Partial<Pick<AxiosConfig, "params" | "data">>): Promise<AxiosResponse<R, E>> => {
+		setState({
+			...state,
+			loading: true
+		});
 		state.loading = true;
 		const { cancelable, params, data, ...requestConfig } = getConfig(url, config);
 		const { params: runParams, data: runData } = runConfig || {};
@@ -80,7 +85,7 @@ export function useAxios<R = any, E = any>(url: string | AxiosConfig, config?: A
 			})
 			.then(res => {
 				state.error = null;
-				state.data = res.data;
+				state.data = res.data as R;
 				return res.data;
 			})
 			.catch(e => {
